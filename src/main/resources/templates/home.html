@@ -1,8 +1,12 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Home Page</title>
+    <link th:replace="partials/links :: links"/>
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
 </head>
 <body>
 <h1>This is the home page</h1>
