@@ -5,6 +5,7 @@ import com.example.demo.repositories.JobsRepository;
 import com.example.demo.repositories.PersonRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -18,12 +19,14 @@ public class JobsController {
         this.jobsRepo = jobsRepo;
         this.personRepo = personRepo;
     }
+    @GetMapping("/jobs")
     public String showJobs(Model model){
         List<Job> jobs = jobsRepo.findAll();
         model.addAttribute("jobs", jobs);
         return "jobs/jobs";
     }
 
+    @GetMapping("/jobs/search")
     public String searchJob(@RequestParam String term, Model model){
         List<Job> jobs = jobsRepo.searchByJobTitle(term);
         model.addAttribute("jobs", jobs);
