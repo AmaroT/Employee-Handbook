@@ -14,6 +14,12 @@ public class Person {
     @Column(nullable = false, length = 100, unique = true)
     private String name;
 
+    @Column(nullable = false, length =100)
+    private String password;
+
+    @Column(columnDefinition = "TEXT")
+    private String profilePic;
+
     @Column(nullable = false, length = 2)
     private int age;
 
@@ -30,9 +36,11 @@ public class Person {
 
 public Person() {}
 
-    public Person(long id, String name, int age, Date dateJoined, Date dateUpdated, List<Job> jobs) {
+    public Person(long id, String name, int age, Date dateJoined, Date dateUpdated, String password, String profilePic, List<Job> jobs) {
         this.id = id;
         this.name = name;
+        this.password = password;
+        this.profilePic = profilePic;
         this.age = age;
         this.dateJoined = dateJoined;
         this.dateUpdated = dateUpdated;
@@ -40,9 +48,13 @@ public Person() {}
     }
 //    Implementing the Copy Constructor
 
+
+
     public Person(Person copy) {
         this.id = copy.id;
         this.name = copy.name;
+        this.password = copy.password;
+        this.profilePic = copy.profilePic;
         this.age = copy.age;
         this.dateJoined = copy.dateJoined;
         this.dateUpdated = copy.dateUpdated;
@@ -65,6 +77,18 @@ public Person() {}
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getProfilePic() { return profilePic;}
+
+    public void setProfilePic(String profilePic) {this.profilePic = profilePic;}
 
     public int getAge() {
         return age;
