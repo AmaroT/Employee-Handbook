@@ -80,4 +80,17 @@ public class PersonController {
         model.addAttribute("jobList", jobList);
         return "person/edit";
     }
+    //Delete feature
+    @GetMapping("/person/delete/{id}")
+    public String deletePerson(@PathVariable long id) {
+        Person person = personRepo.getOne(id);
+        personRepo.delete(person);
+        return "redirect:/sign-up";
+    }
+    @GetMapping("/person/search")
+    public String showPerson(@RequestParam String personTerm, Model model) {
+        List<Person> persons = personRepo.findByNameLike(personTerm);
+        model.addAttribute("persons", persons);
+        return "person/search";
+    }
 }

@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
-public class JobsController {
+public class JobController {
     private final JobsRepository jobsRepo;
     private final PersonRepository personRepo;
 
-    public JobsController(JobsRepository jobsRepo, PersonRepository personRepo) {
+    public JobController(JobsRepository jobsRepo, PersonRepository personRepo) {
         this.jobsRepo = jobsRepo;
         this.personRepo = personRepo;
     }
