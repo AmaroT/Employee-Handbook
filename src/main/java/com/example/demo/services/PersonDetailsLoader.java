@@ -1,11 +1,12 @@
 package com.example.demo.services;
 
 import com.example.demo.models.Person;
+import com.example.demo.models.PersonWithRoles;
 import com.example.demo.repositories.PersonRepository;
 
 import javax.naming.NameNotFoundException;
 
-public class PersonDetailsLoader implements PersonDetailsService {
+public class PersonDetailsLoader<PersonDetails> implements PersonDetailsService {
     private final PersonRepository persons;
 
     public PersonDetailsLoader(PersonRepository persons) {this.persons = persons;}
@@ -16,7 +17,7 @@ public class PersonDetailsLoader implements PersonDetailsService {
         if (person == null) {
             throw new PersonNotFoundException("Person was not found by Name: " + name);
         }
-        return (PersonDetails) new PersonWithRoles(person)
+        return (PersonDetails) new PersonWithRoles(person);
 
     }
 
