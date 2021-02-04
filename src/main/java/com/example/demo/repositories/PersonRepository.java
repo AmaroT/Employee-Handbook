@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface PersonRepository extends JpaRepository<Person, Long> {
     // Need to be able to search for person by Person's name, as in Integration Test
-    Person findPersonByName(String name);
+    Person findPersonByUserName(String name);
 
     Person findById(long id);
 
